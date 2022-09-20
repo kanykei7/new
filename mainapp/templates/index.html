@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pop</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    *{margin:0;padding:0;}
+    .section-1{background-color:#97eb8a; height:1500px; padding-top:150px;}
+    .container{width: 85%;margin:0 auto;}
+    .cart{display:grid;grid-template-columns: 1fr 1fr;justify-content:space-evenly; }
+    .cart-container{ border:1px solid black;margin: 20px 10px; background-color: white; padding: 30px 20px;display:grid;align-items:center; border-radius:20px;}
+    h3{margin-bottom:15px}
+    .cart-user{font-size:22px;}
+    .cart-title{padding-bottom:20px; border-bottom:1px solid grey;}
+    .cart-info{margin-top: 20px;}
+    .cart-info_date{margin-top:30px; padding-top:20px; border-top:1px solid grey; color:grey;}
+    </style>
+</head>
+<body>
+<div class="section-1">
+    <div class="container">
+    <div class="cart">
+    {% for p in posts %}
+            <div class="cart-container">
+                <h3>Автор публикации: <span class="cart-user">{{p.user.username}}</span></h3>
+                <div class="cart-title">
+                    <h2>{{p.title}}</h2>
+                </div>
+                <div class="cart-info">
+                    <p>{{p.description}}</p>
+                    <p class="cart-info_date">{{p.created_at}}</p>
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+</div>
+</div>
+</body>
+</html>
